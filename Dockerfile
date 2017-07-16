@@ -1,6 +1,5 @@
 # Pull base image
 FROM resin/rpi-raspbian:jessie
-MAINTAINER Christian Quentin <christian.quentin@architecte-du-web.com>
 
 RUN apt-get update \
 	&& apt-get install -y --no-install-recommends \
@@ -64,5 +63,9 @@ RUN gem install bundler \
 
 # don't create ".bundle" in all our apps
 ENV BUNDLE_APP_CONFIG $GEM_HOME
+
+MAINTAINER Christian Quentin <christian.quentin@architecte-du-web.com>
+LABEL version="1.0" \
+      description="A ruby 2.4.1 image for Raspberry PI and ARM architecture"
 
 CMD [ "irb" ]
